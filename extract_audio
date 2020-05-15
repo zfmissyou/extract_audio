@@ -1,0 +1,22 @@
+
+from moviepy.editor import *
+
+
+
+
+
+def add_mp32(video_have_zm):
+    #导入声音原视频Megamind.avi
+    fg_Audio = AudioFileClip(r'Source audio file path')
+    # 从原视频Megamind.avi导入声音
+    #audio = fg_Audio.audio
+    # 导入视频Megamind.avi的影像
+    video = VideoFileClip(video_have_zm)
+    # 为源视频Megamind.avi设置声音
+    videoclip2 = video.set_audio(fg_Audio)
+    # 写入声音，后两个参数不加入不好使
+    videoclip2.write_videofile("new video file path",
+                                             codec='libx264',
+                                             audio_codec='aac')
+
+add_mp32('Source video file path')
